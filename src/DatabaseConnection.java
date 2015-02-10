@@ -8,7 +8,7 @@ public class DatabaseConnection {
 	private Statement statement = null;
 	private ResultSet resultSet = null;
 
-	public void connect(){
+	private void connect(){
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 			connect = DriverManager.getConnection(
@@ -41,8 +41,7 @@ public class DatabaseConnection {
 				}
 			} 
 		} catch (Exception e){
-			e.printStackTrace();
-			return;
+			throw e;
 		} finally {
 			close();
 		}

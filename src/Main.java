@@ -1,6 +1,5 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -27,13 +26,7 @@ public class Main {
 			}
 		});
 		
-		DatabaseConnection db = new DatabaseConnection();
-		
-		try{
-			db.readDataBase("SELECT noteInfo FROM Note");
-		} catch (Exception e){
-			System.out.println(e);
-		}
+		Directions.getDirections("HA38DN","HA98HA","Driving");
 
 	}
 
