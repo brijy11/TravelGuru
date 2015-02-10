@@ -1,35 +1,28 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Date;
 
 public class DatabaseConnection {
 	private Connection connect = null;
 	private Statement statement = null;
-	private PreparedStatement preparedStatement = null;
 	private ResultSet resultSet = null;
 
-	public void readDataBase(String query) throws Exception {
-		try {
+	public void connect(){
+		try{
 			Class.forName("com.mysql.jdbc.Driver");
 			connect = DriverManager.getConnection(
 					"jdbc:mysql://elephant.ecs.westminster.ac.uk:3306/w1423531_0",
 					"w1423531", "wycYSk9cc9bt");
-		} catch (Exception e) {
+		} catch (Exception e){
 			e.printStackTrace();
 			return;
 		}
+	}
+	
+	public void readDataBase(String query) throws Exception {
+		
+		connect();
 	  
 		try{
 			statement = connect.createStatement();
@@ -38,33 +31,23 @@ public class DatabaseConnection {
 			return;
 		}
 	  
-	  try{
-		  resultSet = statement.executeQuery(query);
-		  int n = 0;
-		  
-		  while(resultSet.next()){
-			  int numColumns = resultSet.getMetaData().getColumnCount();
-			  n++;
-			  for(int i = 1; i <= numColumns; i++){
-				  System.out.println(resultSet.getObject(i));
-			  }
-		  } 
-	  } catch (Exception e){
-		  e.printStackTrace();
-		  return;
-	  }
-	  
-	  try{
-		  resultSet.close();
-		  statement.close();
-		  connect.close();
-	  } catch (Exception e){
-		  e.printStackTrace();
-		  return;
-	  }
-	  
+		try{
+			resultSet = statement.executeQuery(query);
+			  
+			while(resultSet.next()){
+				int numColumns = resultSet.getMetaData().getColumnCount();
+				for(int i = 1; i <= numColumns; i++){
+					System.out.println(resultSet.getObject(i));
+				}
+			} 
+		} catch (Exception e){
+			e.printStackTrace();
+			return;
+		} finally {
+			close();
+		}
 	}
-  
+	
 	private void close() {
 		try {
 			if (resultSet != null) {
@@ -79,7 +62,8 @@ public class DatabaseConnection {
 				connect.close();
 			}
 		} catch (Exception e) {
-			
+			e.printStackTrace();
+			return;
 		}
   }
 
