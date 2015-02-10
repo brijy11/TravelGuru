@@ -21,12 +21,10 @@ public class Main {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				Notepad n = new Notepad();
 				mainWindow.setVisible(false);
+				Notepad n = new Notepad();
 			}
 		});
-		
-		Directions.getDirections("HA38DN","HA98HA","Driving");
 
 	}
 

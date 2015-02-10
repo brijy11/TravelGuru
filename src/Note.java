@@ -1,10 +1,15 @@
+import java.util.Date;
 
 public class Note {
 
-	String Text;
+	private String Title;
+	private String Description;
+	private String Date;
 	
-	public Note(){
-		
+	public Note(String title, String desc, String date){
+		Title = title;
+		Description = desc;
+		Date = date;
 	}
 	
 }
