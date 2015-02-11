@@ -17,9 +17,9 @@ public class FillingStation extends PlacesOfInterest {
 	public Double getPetrolPrice(){
 		return PetrolPrice;
 	}
-	
+	 
 	public Double getDieselPrice(){
-		System.out.println();
+		
 		return DieselPrice;
 	}
 	
