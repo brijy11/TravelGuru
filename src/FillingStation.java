@@ -19,7 +19,6 @@ public class FillingStation extends PlacesOfInterest {
 	}
 	 
 	public Double getDieselPrice(){
-		
 		return DieselPrice;
 	}
 	
