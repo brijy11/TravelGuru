@@ -12,9 +12,13 @@ public class DatabaseConnection {
 	private static void connect(){
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
+			/*connect = DriverManager.getConnection(
+					"jdbc:mysql://50.62.209.72:3306/TravelGuru",
+					"TravelGuru", "TravelGuru");*/
 			connect = DriverManager.getConnection(
-					"jdbc:mysql://elephant.ecs.westminster.ac.uk:3306/w1423531_0?verifyServerCertificate=false&useSSL=true&requireSSL=true",
-					"w1423531@support.ecs.westminster.ac.uk", "wycYSk9cc9bt");
+					"jdbc:mysql://ams001.hawkhost.com:2083/cpsess3880030074/comput11_sdgp",
+					"comput11_sdgp", "TravelGuru");
+			System.out.println("wsdasdas");   
 			// So with the connect string, you might need to change it at home and at uni. 
 		} catch (Exception e){
 			e.printStackTrace();
