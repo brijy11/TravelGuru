@@ -13,8 +13,9 @@ public class DatabaseConnection {
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 			connect = DriverManager.getConnection(
-					"jdbc:mysql://localhost:2222/w1423531_0",
-					"w1423531", "wycYSk9cc9bt");
+					"jdbc:mysql://elephant.ecs.westminster.ac.uk:3306/w1423531_0?verifyServerCertificate=false&useSSL=true&requireSSL=true",
+					"w1423531@support.ecs.westminster.ac.uk", "wycYSk9cc9bt");
+			// So with the connect string, you might need to change it at home and at uni. 
 		} catch (Exception e){
 			e.printStackTrace();
 			return;
