@@ -8,7 +8,7 @@ public class ShoppingCentre extends PlacesOfInterest {
 	public ShoppingCentre(String name, String address, String postcode,
 			char[] contactNumber) {
 		super(name, address, postcode, contactNumber);
-		// TODO Auto-generated constructor stub
+		    
 	}
 
 	
