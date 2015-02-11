@@ -1,10 +1,6 @@
-import java.util.ArrayList;
 import java.io.BufferedReader;
-import java.io.DataOutputStream;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.URL;
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLConnection;
 
@@ -16,6 +12,10 @@ public class Directions {
 	private static String TravellingMethod;
 	private static String URL;
 	
+	
+	// To use this, just call Directions.getDirections(), with these parameters and it should work
+	// The parameters for way of travelling is 'driving' for Driving, 'walking' for Walking, 'bicycling'
+	// for Bicycles and 'transit' for public transport. These are case sensitive so be careful.
 	public static void getDirections(String start, String end, String method) {
 		
 		StartingLocation = start;
