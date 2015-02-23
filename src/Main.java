@@ -125,36 +125,25 @@ public class Main {
  			}
  		});
  		
- exit.addActionListener(new ActionListener() {
-			
-			@Override
-<<<<<<< HEAD
+        notepad.addActionListener(new ActionListener(){
+        	@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				mainWindow.setVisible(false);
 				Notepad n = new Notepad();
 			}
-		});
-=======
-			public void actionPerformed(ActionEvent e) {
-				
-				System.exit(0);				
-				
-			
-			}
-		});
+        });
+        
+        exit.addActionListener(new ActionListener(){
+        	public void actionPerformed(ActionEvent e) {
+        		System.exit(0);
+        	}
+        });
 		
 		
 		mainWindow.add(panel1);
 		mainWindow.setSize(364, 584);
 		mainWindow.setVisible(true);
-
-
-		
-		
-		
-		
->>>>>>> origin/master
 
 	}
 
